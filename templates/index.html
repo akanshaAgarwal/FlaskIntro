@@ -1,0 +1,76 @@
+<!--  
+
+    Just type ! , and default syntax
+    will appear on selection from options
+
+    Template inheritance - inherit code
+    create a master html file, contains the skeleton
+    then inherit that in other pages, insert code
+    whereever needed
+
+-->
+
+<!-- OLD CODE - INITIAL
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello World
+</body>
+</html> -->
+
+
+
+<!-- 
+    
+    NEW CODE - USING TEMPLATE INHERITANCE 
+
+-->
+
+<!-- Just follow the format of base class and 
+it will be fine -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class='content'>
+    <h1> Task Master</h1>
+    {% if tasks|length < 1 %}
+    <h4>There are no tasks available</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        <!-- we receive the tasks from app.py and display them
+             in the table, use  -->
+        {% for task in tasks %}
+            <tr>
+                <td>{{task.content}} </td>
+                <td>{{task.date_created.date()}} </td>
+                <td> 
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br/>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr> 
+        {% endfor %}
+    </table>
+    {% endif %}
+    <form action="/" method='POST'>
+        <input type='text' name='content' id='content'>
+        <input type='submit' value='Add Task'>
+    </form>
+</div>
+{% endblock %}
