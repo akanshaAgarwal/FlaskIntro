@@ -3,29 +3,31 @@ which will be inherited -->
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- To link stylesheet, which is in static folder
     we cannot directly give path
     so we use url_for in flask
     provide folder name, then path to file
      -->
 
-     <link rel='stylesheet' href="{{url_for('static',filename='css/main.css')}}">
-    
-    
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/main.css')}}"
+    />
+
     <!-- <title>Document</title> ; no need for this -->
-    
+
     <!-- boilerplate code - create block , call it head, and one endblock
-    ginger 2 syntax - creating block and template 
+    jinja 2 syntax - creating block and template 
     we will insert code in the block,
     in all of the inherited pages -->
     {% block head %}{% endblock %}
-</head>
-<body>
+  </head>
+  <body>
     <!-- one made in the body named body -->
     {% block body %}{% endblock %}
-</body>
+  </body>
 </html>
