@@ -5,7 +5,7 @@ Created a task manager using flask.
 
 To run this code follow the following steps :
 
-(1) clone the repository using the following command : <i> git clone https://wwwin-github.cisco.com/akansaga/FlaskIntro.git </i> 
+(1) clone the repository using the following command : <i> git clone https://github.com/akanshaAgarwal/FlaskIntro.git </i> 
 
 (2) Install python3.
 
